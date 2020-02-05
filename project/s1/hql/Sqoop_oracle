@@ -1,0 +1,28 @@
+echo "enter table in caps"
+
+while:
+do
+
+read tblname
+case $tblname in
+CUSTOMERS)
+dirname = "usa_customers"
+break ;;
+
+TRANSACTIONS)
+dirname = "usa_customers"
+break ;;
+
+PRODUCTS)
+dirname = "usa_customers"
+break ;;
+EXIT)
+*)
+esac
+done
+
+
+
+sqoop import --connect jdbc:oracle:thin:usa/usa@ip:1521:xe --username usa --password usa --table $tblname
+--target-dir /user/$dirname -m 1
+
